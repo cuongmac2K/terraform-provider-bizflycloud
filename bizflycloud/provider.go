@@ -97,6 +97,7 @@ func Provider() terraform.ResourceProvider {
 			"bizflycloud_autoscaling_deletion_policy":          resourceBizflyCloudAutoscalingDeletionPolicy(),
 			"bizflycloud_autoscaling_launch_configuration":     resourceBizflyCloudAutoscalingLaunchConfiguration(),
 			"bizflycloud_kubernetes":                           resourceBizflyCloudKubernetes(),
+			"bizflycloud_kubernetes_worker_pool":               resourceBizflyCloudKubernetesWorkerPool(),
 			"bizflycloud_vpc_network":                          resourceBizflyCloudVPCNetwork(),
 			"bizflycloud_network_interface":                    resourceBizflyCloudNetworkInterface(),
 			"bizflycloud_dns":                                  resourceBizflyCloudDNS(),
@@ -109,6 +110,8 @@ func Provider() terraform.ResourceProvider {
 			"bizflycloud_custom_image":                         resourceBizflyCloudCustomImage(),
 			"bizflycloud_volume_attachment":                    resourceBizflyCloudVolumeAttachment(),
 			"bizflycloud_cdn":                                  resourceBizflyCloudCDN(),
+			"bizflycloud_internet_gateway":                     resourceInternetGateway(),
+			"bizflycloud_container_registry":                   resourceBizflyCloudContainerRegistry(),
 		},
 		DataSourcesMap: map[string]*schema.Resource{
 			"bizflycloud_image":                            datasourceBizflyCloudImages(),
@@ -130,6 +133,7 @@ func Provider() terraform.ResourceProvider {
 			"bizflycloud_cloud_database_node":              datasourceBizflyCloudDatabaseNode(),
 			"bizflycloud_custom_image":                     dataSourceBizflyCloudCustomImage(),
 			"bizflycloud_volume_snapshot":                  dataSourceBizflyCloudVolumeSnapshot(),
+			"bizflycloud_container_registry":               dataSourceBizflyCloudContainerRegistry(),
 		},
 	}
 	p.ConfigureFunc = func(d *schema.ResourceData) (interface{}, error) {
